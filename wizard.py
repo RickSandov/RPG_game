@@ -1,4 +1,5 @@
 from warrior import Warrior
+from termcolor import colored
 
 class Wizard(Warrior):
 
@@ -8,7 +9,7 @@ class Wizard(Warrior):
         enemy.life_level -= (enemy.life_level * .4)
         wizard.life_level += (enemy.life_level * .4)
 
-        return print(f'\n{self.warrior_name} has requested help from the hell!!!')
+        return print(colored(f'\n{self.warrior_name} has requested help from the hell!!!','white','on_red'))
 
 
 

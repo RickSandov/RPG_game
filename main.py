@@ -2,16 +2,22 @@ from wizard import merlin
 from knight import sirnyro
 import game_functions as game
 from functions import pause_and_clear as clear
+from termcolor import colored
 
 
 normal_pause = 1.5
 long_pause = 3
 very_long_pause = 7
 
+
+print(colored('''\n\n╦═╗╔═╗╔═╗  ╔═╗╔═╗╔╦╗╔═╗
+╠╦╝╠═╝║ ╦  ║ ╦╠═╣║║║║╣ 
+╩╚═╩  ╚═╝  ╚═╝╩ ╩╩ ╩╚═╝''','red'))
+
 # Creating the player and the enemy
 while True:
-    player = int(input('\n\n1.- Knight              2.- Wizard\n\nType the number of the player you\'d like to use ---> '))
-    name = input('Name of your character --> ')
+    player = int(input(colored('\n\n1.- Knight              2.- Wizard\n\nType the number of the player you\'d like to use ---> ','green')))
+    name = input(colored('Name of your character --> ','cyan'))
     if player == 1: 
         player = sirnyro
         player.warrior_name = name
@@ -27,7 +33,8 @@ clear(normal_pause)
 
 # Set the difficulty of the enemy
 while True:
-    difficulty = int(input('\n\nDifficulty levels:             1.- Easy          2.- Normal          3.- Hard\n\nType the number of the difficulty you\'d like to play ---> '))
+    print(colored('\n\nDifficulty levels:','green'),end=" "), print(colored('             1.- Easy          2.- Normal          3.- Hard','red'))
+    difficulty = int(input(colored('\nType the number of the difficulty you\'d like to play ---> ','cyan')))
     if difficulty == 1 or difficulty == 2 or difficulty == 3:
         break
     print('Choose a valid difficulty')
@@ -44,27 +51,27 @@ elif difficulty == 3:
     difficulty_string = 'hard'
     game.set_difficulty(enemy,'hard',25,150,35)
 
-print('\n\nLoading game...')
+print(colored('\n\nLoading game...','magenta'))
 clear(very_long_pause)
 
-print('\n\nTIME TO FIGHT!!!\n\nYou play first...')
+print(colored('\n\nTIME TO FIGHT!!!','red')), print(colored('\nYou play first...','yellow'))
 
 while True:
     # Set game over
     if player.life_level <= 0:
-        print('\n\nWOOOAA. You\'ve lost!! You\'re weak...\n\n')
+        print(colored('\n\n\nWOOOAA. You\'ve lost!! You\'re weak...\n\n','red','on_white'))
         break
     elif enemy.life_level <= 0:
-        print('\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n')
+        print(colored('\n\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n','green','on_white'))
         break
     
-    print('\n\nWait...\n\n')
+    print(colored('\n\nWait...\n\n','magenta'))
     clear(long_pause)
 
     player_special_power = False
     enemy_special_power = False
 
-    print('\n\nShaking cards...\n\n')
+    print(colored('\n\nShaking cards...\n\n','yellow'))
 
     clear(long_pause)
 
@@ -80,20 +87,22 @@ while True:
     enemy_defense_option = enemy.defenses_list[(game.random_ability(enemy.defenses_list))]
     enemy_heal_option = enemy.healings_list[(game.random_ability(enemy.healings_list))]
     
-    print(f'\n\n{player.warrior_name}\'s current info.\nlife: {int(player.life_level)}               defense: {player.defense_level}')
-    print(f'\n\n{enemy.warrior_name}\'s current info.\nlife: {int(enemy.life_level)}               defense: {enemy.defense_level}')
+    print(colored(f'\n\n{player.warrior_name}\'s current info.\nlife: {int(player.life_level)}               defense: {player.defense_level}','cyan'))
+    print(colored(f'\n\n{enemy.warrior_name}\'s current info.\nlife: {int(enemy.life_level)}               defense: {enemy.defense_level}','green'))
 
-    print('\n\nYour options are:\n\n')
+    print(colored('\n\nYour options are:\n\n','yellow'))
     
-    print(f'1.- Attack: {player_attack_option.attack_name}({player_attack_option.attack_level})           2.- Defense: {player_defense_option.defense_name}({player_defense_option.defense_level}%)            3.- Heal: {player_heal_option.heal_name}({player_heal_option.heal_level})')
+    print(colored(f'1.- Attack: {player_attack_option.attack_name}({player_attack_option.attack_level})','magenta'), end=' ')
+    print(colored(f'           2.- Defense: {player_defense_option.defense_name}({player_defense_option.defense_level}%)','white'), end=' ')
+    print(colored(f'            3.- Heal: {player_heal_option.heal_name}({player_heal_option.heal_level})','magenta'))
 
     if player_special_power:
         if enemy.warrior_name == 'SirNyro':
-            print('\nYou can use your special power (UNDERWORLD HELP). Steal part of your opponent\'s life and heal yourself with that stolen life.\nType 4 to choose it!\n')
+            print(colored('\nYou can use your special power (UNDERWORLD HELP). Steal part of your opponent\'s life and heal yourself with that stolen life.','red')), print('Type 4 to choose it!\n')
         else:
-            print('\nYou can use your special power (SUMMON LIGHTNING). Burn your opponent\'s spell and attack your opponent.\nType 4 to choose it!\n')
+            print(colored('\nYou can use your special power (SUMMON LIGHTNING). Burn your opponent\'s spell and attack your opponent.','red')), print('Type 4 to choose it!\n')
 
-    player_option = int(input('Type the number of what you want to do ---> '))
+    player_option = int(input(colored('Type the number of what you want to do ---> ','yellow')))
     
     if player_option == 1: 
         player.attack_level = player_attack_option.attack_level
@@ -111,29 +120,31 @@ while True:
         else:
             player.SummonLightning(enemy)
 
-    continue_playing = input("\n\nPress enter to continue...\n\n")
+    continue_playing = input(colored("\n\nPress enter to continue...\n\n",'green'))
     
     clear(.1)
     
     if enemy.life_level <= 0:
-        print('\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n')
+        printprint(colored('\n\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n','green','on_white'))
         break
 
-    print(f'\n\n{player.warrior_name}\'s current info.\nlife: {int(player.life_level)}               defense: {player.defense_level}')
-    print(f'\n\n{enemy.warrior_name}\'s current info.\nlife: {int(enemy.life_level)}               defense: {enemy.defense_level}')
+    print(colored(f'\n\n{player.warrior_name}\'s current info.\nlife: {int(player.life_level)}               defense: {player.defense_level}','cyan'))
+    print(colored(f'\n\n{enemy.warrior_name}\'s current info.\nlife: {int(enemy.life_level)}               defense: {enemy.defense_level}','red'))
 
     print(f'\n\n{enemy.warrior_name}\'s options are:\n\n')
     
-    print(f'1.- Attack: {enemy_attack_option.attack_name}({enemy_attack_option.attack_level})           2.- Defense: {enemy_defense_option.defense_name}({enemy_defense_option.defense_level}%)            3.- Heal: {enemy_heal_option.heal_name}({enemy_heal_option.heal_level})')
+    print(colored(f'1.- Attack: {enemy_attack_option.attack_name}({enemy_attack_option.attack_level})','yellow'), end=' ')
+    print(colored(f'           2.- Defense: {enemy_defense_option.defense_name}({enemy_defense_option.defense_level}%)','magenta'), end=' ')
+    print(colored(f'            3.- Heal: {enemy_heal_option.heal_name}({enemy_heal_option.heal_level})','yellow'))
 
     if enemy_special_power == True:
         if enemy.warrior_name == 'SirNyro':
-            print(f'\n{enemy.warrior_name} can use his special power (UNDERWORLD HELP). Steal part of your life and heal himself with that stolen life.\n\n')
+            print(colored(f'\n{enemy.warrior_name} can use his special power (UNDERWORLD HELP). Steal part of your life and heal himself with that stolen life.\n\n','green'))
         else:
-            print(f'\n{enemy.warrior_name} can use his special power (SUMMON LIGHTNING). Burn your spell book and attack you.\n\n')
+            print(colored(f'\n{enemy.warrior_name} can use his special power (SUMMON LIGHTNING). Burn your spell book and attack you.\n\n','green'))
 
     if enemy_special_power: enemy_option = 4
-    elif enemy.life_level < 30: enemy_option = 3
+    elif enemy.life_level < 25: enemy_option = 3
     elif enemy.defense_level < enemy_defense_option.defense_level: enemy_option = 2
     elif player.life_level > enemy.life_level or player.life_level > 60: enemy_option = 1
     elif enemy.life_level < 65 or enemy.life_level < player.life_level: enemy_option = 3
@@ -144,19 +155,19 @@ while True:
         elif difficulty_string == 'hard': enemy.attack_level = enemy_attack_option.attack_level * 1.2
         else: enemy.attack_level = enemy_attack_option.attack_level
         game.Attack(enemy,player)
-        print(f'\n\n{enemy.warrior_name} attacked you!!!\n\n')
+        print(colored(f'\n\n{enemy.warrior_name} attacked you!!!\n\n','red'))
     elif enemy_option == 2: 
         enemy.defense_level = enemy_defense_option.defense_level
-        print(f'\n\n{enemy.warrior_name} changed his defense...\n\n')
+        print(colored(f'\n\n{enemy.warrior_name} changed his defense...\n\n','red'))
     elif enemy_option == 3: 
         enemy.life_level += enemy_heal_option.heal_level
-        print(f'\n\n{enemy.warrior_name} healed himself...\n\n')
+        print(colored(f'\n\n{enemy.warrior_name} healed himself...\n\n','red'))
     elif enemy_option == 4 and enemy_special_power == True:
         if enemy.warrior_name == 'Merlín':
             enemy.StealLife(enemy,player)
         else:
             enemy.SummonLightning(player)
 
-    continue_playing = input("\n\nPress enter to continue...\n\n")
+    continue_playing = input(colored("\n\nPress enter to continue...\n\n",'green'))
     
     clear(.1)

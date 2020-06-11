@@ -1,15 +1,15 @@
 import random as rnd
 import warrior as warrior
+from termcolor import colored
 
 def set_difficulty(enemy,diff,attack,life,defense):
     enemy.attack_level = attack
     enemy.life_level = life
     enemy.defense_level = defense
 
-    if diff == 'easy': return print('\n\nEasy.\nYour enemy makes less damage and has less life, but he has more shield.\nYOU have more probability to use your SPECIAL ATTACK.')
-    elif diff == 'normal': return print('\n\nNormal.\nYou and your enemy have the same damage, life and shield.\nNormal probability to use SPECIAL ATTACK.')
-    elif diff == 'hard': return print('\n\nHard.\nYour enemy is more powerful and has more life and shield.\nMore probability to use SPECIAL ATTACK. (But the enemy has more)')
-
+    if diff == 'easy': return print(colored('\n\nEasy.','red')), print(colored('Your enemy makes less damage and has less life, but he has more shield.','green')), print(colored('YOU have more probability to use your SPECIAL ATTACK.','cyan'))
+    elif diff == 'normal': return print(colored('\n\nNormal.','red')), print(colored('You and your enemy have the same damage, life and shield.','green')), print(colored('Normal probability to use SPECIAL ATTACK.','white'))
+    elif diff == 'hard': return print(colored('\n\Hard.','red')), print(colored('Your enemy is more powerful and has more life and shield.','green')), print(colored('More probability to use SPECIAL ATTACK. (But the enemy has more)','white'))
 
 def random_ability(list):
     return rnd.randint(0,len(list)-1)

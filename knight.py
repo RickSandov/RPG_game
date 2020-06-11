@@ -1,4 +1,5 @@
 from warrior import Warrior
+from termcolor import colored
 
 class Knight(Warrior):
 
@@ -7,7 +8,7 @@ class Knight(Warrior):
     def SummonLightning(self,enemy):
         enemy.life_level -= enemy.life_level * .3
         self.life_level += enemy.life_level * .3
-        return print(f'\n{self.warrior_name} attacked and {enemy.warrior_name} has heal him.')
+        return print(colored(f'\n{self.warrior_name} attacked and {enemy.warrior_name} has heal him.','white','on_red'))
 
 
 
