@@ -59,10 +59,16 @@ print(colored('\n\nTIME TO FIGHT!!!','red')), print(colored('\nYou play first...
 while True:
     # Set game over
     if player.life_level <= 0:
-        print(colored('\n\n\nWOOOAA. You\'ve lost!! You\'re weak...\n\n','red','on_white'))
+        print(colored('''╦ ╦╔═╗╦ ╦  ╦  ╔═╗╔═╗╔╦╗
+╚╦╝║ ║║ ║  ║  ║ ║╚═╗ ║ 
+ ╩ ╚═╝╚═╝  ╩═╝╚═╝╚═╝ ╩ ''','red','on_white'))
+        print(colored('\n\n\nWOOOAA. You\'ve lost!! You\'re weak...\n\n','magenta','on_white'))
         break
     elif enemy.life_level <= 0:
-        print(colored('\n\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n','green','on_white'))
+        print(colored('''╦  ╦╦╔═╗╔╦╗╔═╗╦═╗╦ ╦
+╚╗╔╝║║   ║ ║ ║╠╦╝╚╦╝
+ ╚╝ ╩╚═╝ ╩ ╚═╝╩╚═ ╩ ''','green','on_white'))
+        print(colored('\n\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n','cyan','on_white'))
         break
     
     print(colored('\n\nWait...\n\n','magenta'))
@@ -125,7 +131,10 @@ while True:
     clear(.1)
     
     if enemy.life_level <= 0:
-        printprint(colored('\n\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n','green','on_white'))
+        print(colored('''╦  ╦╦╔═╗╔╦╗╔═╗╦═╗╦ ╦
+╚╗╔╝║║   ║ ║ ║╠╦╝╚╦╝
+ ╚╝ ╩╚═╝ ╩ ╚═╝╩╚═ ╩ ''','green','on_white'))
+        print(colored('\n\n\nUNBELIEVABLE. You\'ve defeated your oponent!! Congratulations... Want a beer?\n\n','cyan','on_white'))
         break
 
     print(colored(f'\n\n{player.warrior_name}\'s current info.\nlife: {int(player.life_level)}               defense: {player.defense_level}','cyan'))
