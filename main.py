@@ -153,10 +153,10 @@ while True:
             print(colored(f'\n{enemy.warrior_name} can use his special power (SUMMON LIGHTNING). Burn your spell book and attack you.\n\n','green'))
 
     if enemy_special_power: enemy_option = 4
+    elif player.life_level < 30: enemy_option = 1
     elif enemy.life_level < 25: enemy_option = 3
     elif enemy.defense_level < enemy_defense_option.defense_level: enemy_option = 2
-    elif player.life_level > enemy.life_level or player.life_level > 60: enemy_option = 1
-    elif enemy.life_level < 65 or enemy.life_level < player.life_level: enemy_option = 3
+    elif player.life_level > enemy.life_level or player.life_level > 30: enemy_option = 1
     else: enemy_option = 2
 
     if enemy_option == 1: 
