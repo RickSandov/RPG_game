@@ -61,8 +61,8 @@ while True:
     if player.life_level <= 0:
         print(colored('''╦ ╦╔═╗╦ ╦  ╦  ╔═╗╔═╗╔╦╗
 ╚╦╝║ ║║ ║  ║  ║ ║╚═╗ ║ 
- ╩ ╚═╝╚═╝  ╩═╝╚═╝╚═╝ ╩ ''','red','on_white'))
-        print(colored('\n\n\nWOOOAA. You\'ve lost!! You\'re weak...\n\n','magenta','on_white'))
+ ╩ ╚═╝╚═╝  ╩═╝╚═╝╚═╝ ╩ ''','white','on_red'))
+        print(colored('\n\n\nWOOOAA. Your oponent has won!! You\'re weak...\n\n','white','on_magenta'))
         break
     elif enemy.life_level <= 0:
         print(colored('''╦  ╦╦╔═╗╔╦╗╔═╗╦═╗╦ ╦
@@ -152,7 +152,8 @@ while True:
         else:
             print(colored(f'\n{enemy.warrior_name} can use his special power (SUMMON LIGHTNING). Burn your spell book and attack you.\n\n','green'))
 
-    if enemy_special_power: enemy_option = 4
+    if player.life_level < 20: enemy_option = 1
+    elif enemy_special_power: enemy_option = 4
     elif player.life_level < 30: enemy_option = 1
     elif enemy.life_level < 25: enemy_option = 3
     elif enemy.defense_level < enemy_defense_option.defense_level: enemy_option = 2

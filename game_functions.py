@@ -9,7 +9,7 @@ def set_difficulty(enemy,diff,attack,life,defense):
 
     if diff == 'easy': return print(colored('\n\nEasy.','red')), print(colored('Your enemy makes less damage and has less life, but he has more shield.','green')), print(colored('YOU have more probability to use your SPECIAL ATTACK.','cyan'))
     elif diff == 'normal': return print(colored('\n\nNormal.','red')), print(colored('You and your enemy have the same damage, life and shield.','green')), print(colored('Normal probability to use SPECIAL ATTACK.','white'))
-    elif diff == 'hard': return print(colored('\n\Hard.','red')), print(colored('Your enemy is more powerful and has more life and shield.','green')), print(colored('More probability to use SPECIAL ATTACK. (But the enemy has more)','white'))
+    elif diff == 'hard': return print(colored('\n\Hard.','red')), print(colored('Your enemy is more powerful and has more life and shield.','green')), print(colored('More probability to use SPECIAL ATTACK. (But the enemy has even more)','white'))
 
 def random_ability(list):
     return rnd.randint(0,len(list)-1)
