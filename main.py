@@ -1,3 +1,6 @@
+### MADE BY: Ricardo Javier Sandoval Calderón
+
+
 from wizard import merlin
 from knight import sirnyro
 import game_functions as game
@@ -9,8 +12,9 @@ normal_pause = 1.5
 long_pause = 3
 very_long_pause = 7
 
+print(colored('\n\n\nGame made by: Ricardo Sandoval. I hope you enjoy it :D','cyan'))
 
-print(colored('''\n\n╦═╗╔═╗╔═╗  ╔═╗╔═╗╔╦╗╔═╗
+print(colored('''╦═╗╔═╗╔═╗  ╔═╗╔═╗╔╦╗╔═╗
 ╠╦╝╠═╝║ ╦  ║ ╦╠═╣║║║║╣ 
 ╩╚═╩  ╚═╝  ╚═╝╩ ╩╩ ╩╚═╝''','red'))
 
