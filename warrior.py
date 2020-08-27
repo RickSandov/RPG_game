@@ -9,12 +9,6 @@ class Warrior:
         self.defenses_list = defenses_list
         self.healings_list = healings_list
 
-    # def get_life_level(self):
-    #     return self.life_level
-
-    # def get_warrior_name(self):
-    #     return self.warrior_name
-
     def new_attack(self,attack_level,attack_name):
         self.attacks_list.append(Attack(attack_level,attack_name))
 

@@ -12,7 +12,7 @@ class Knight(Warrior):
 
 
 
-sirnyro = Knight(attack_level=20,defense_level=20,life_level=120,warrior_name='SirNyro',attacks_list=[],defenses_list=[],healings_list=[])
+sirnyro = Knight(attack_level=25,defense_level=30,life_level=120,warrior_name='SirNyro',attacks_list=[],defenses_list=[],healings_list=[])
 
 
 # Create attacks

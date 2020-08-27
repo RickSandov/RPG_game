@@ -13,7 +13,7 @@ class Wizard(Warrior):
 
 
 
-merlin = Wizard(attack_level=20,defense_level=20,life_level=120,warrior_name='Merlín',attacks_list=[],defenses_list=[],healings_list=[])
+merlin = Wizard(attack_level=20,defense_level=15,life_level=120,warrior_name='Merlín',attacks_list=[],defenses_list=[],healings_list=[])
 
 # Create attacks
 
